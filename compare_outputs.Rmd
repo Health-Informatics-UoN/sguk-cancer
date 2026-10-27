@@ -1,0 +1,15 @@
+---
+title: Comparing outputs
+---
+
+```{r}
+scriptOutput <- omopgenerics::importSummarisedResult("output/demoIncidence.csv")
+```
+
+```{r}
+IncidencePrevalence::plotIncidence(scriptOutput)
+```
+
+```{r}
+IncidencePrevalence::asIncidenceResult(scriptOutput) |> dplyr::glimpse()
+```
