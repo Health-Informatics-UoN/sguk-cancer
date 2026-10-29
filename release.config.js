@@ -1,0 +1,11 @@
+module.exports = {
+    "branches": ["main"],
+    "tagFormat": "${version}",
+    "preset": "angular",
+    "repositoryUrl": "https://github.com/Health-Informatics-UoN/sguk-cancer.git",
+    plugins: [
+      '@semantic-release/commit-analyzer',
+      '@semantic-release/release-notes-generator',
+      '@semantic-release/github',
+    ]
+};
