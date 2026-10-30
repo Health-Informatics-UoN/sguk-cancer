@@ -1,0 +1,21 @@
+# Creates a semver tag and GitHub release from conventional-commit PR titles.
+# See https://github.com/Health-Informatics-UoN/workflows/blob/main/docs/samples/release.container.md
+
+name: Release
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    uses: health-informatics-uon/workflows/.github/workflows/semantic-release.yml@83cde33d81849fd85749625bf26326a30128e6ce # v 1.6.1
+    with:
+      node-version: "24"
+    secrets: inherit
+
