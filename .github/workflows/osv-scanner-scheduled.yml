@@ -1,0 +1,23 @@
+name: OSV-Scanner Scheduled Scan
+
+on:
+  schedule:
+    # 12:30pm UTC every Monday
+    - cron: "30 12 * * 1"
+  push:
+    branches: [main]
+
+permissions:
+  # Required to upload SARIF file to CodeQL. See: https://github.com/github/codeql-action/issues/2117
+  actions: read
+  # Require writing security events to upload SARIF file to security tab
+  security-events: write
+  # Only need to read contents
+  contents: read
+
+jobs:
+  export-renv-lockfile:
+  # osv doesn't support rv lockfiles, but it does support renv
+  # rv can export an renv lockfile
+  uses: health-informatics-uon/omop-r-toolkit/.github/workflows/osv-scan-rv.yml@53b9f273a747c93dd3abb0a48194f92e4d3dded6
+  secrets: inherit
