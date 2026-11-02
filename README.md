@@ -5,6 +5,34 @@ The R script `runIncidence.R` will run an incidence analysis.
 There are comments throughout giving hints on how the analysis can be modified, though this is not complete.
 The full set of parameters is best described in the documentation for [generateConceptCohortSet](https://darwin-eu.github.io/CDMConnector/reference/generateConceptCohortSet.html), [generateDenominatorCohortSet](https://darwin-eu.github.io/IncidencePrevalence/reference/generateDenominatorCohortSet.html), and [estimateIncidence](https://darwin-eu.github.io/IncidencePrevalence/reference/estimateIncidence.html), and the vignettes on the relevant packages.
 
+## Running the script
+
+The script can be run using Rscript.
+For a reproducible environment, the project uses [rv](https://a2-ai.github.io/rv-docs/), so to make sure the same package versions are used, you need to sync the packages:
+
+```sh
+rv sync
+```
+
+Then activate the environment:
+
+```sh
+rv activate
+```
+
+The database connection uses environment variables, so to run the script:
+
+```sh
+DB_NAME=omop \ #your database name
+DB_HOST=hostname \ #your database host
+DB_PORT=5432 \ #the database port on your host
+DB_PASSWORD=supersecret \ #your database password>
+DB_USER=username \ # your database username
+DB_READ_SCHEMA=omop \ # schema name containing omop tables
+DB_WRITE_SCHEMA=omop \ #schema that the credentials can write to
+Rscript runIncidence.R
+```
+
 ## Outcome cohort
 The outcome cohort is anyone with a diagnosis of breast cancer (concept_id 81251).
 This can be expanded to multiple cohorts, or a cohort with more than one code.
