@@ -11,15 +11,14 @@ con <- DBI::dbConnect(
   bigint = "numeric"
 )
 
-# I imagine you will want to use a different set of schemata here.
 # The scripts write to the schema named in writeSchema.
 # If possible, I would give the researchers their own schema to write to.
 
 cdm <- CDMConnector::cdmFromCon(
     con = con,
-    cdmSchema = "public",
-    writeSchema = "public",
-    cdmName = "delphi_synthetic",
+    cdmSchema = Sys.getenv("DB_READ_SCHEMA"),
+    writeSchema = Sys.getenv("DB_WRITE_SCHEMA"),
+    cdmName = "singapore_data",
     # It's also possible to specify a prefix for the cohort tables.
     # If that's helpful, e.g. for dropping the tables after, supply one here.
     writePrefix = NULL
