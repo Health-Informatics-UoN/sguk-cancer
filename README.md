@@ -33,6 +33,8 @@ DB_WRITE_SCHEMA=omop \ #schema that the credentials can write to
 Rscript runIncidence.R
 ```
 
+The output will then be a csv in the [omopgenerics]() summarised [result]() format, saved to `output/incidence.csv` by default.
+
 ## Outcome cohort
 The outcome cohort is anyone with a diagnosis of breast cancer (concept_id 81251).
 This can be expanded to multiple cohorts, or a cohort with more than one code.
