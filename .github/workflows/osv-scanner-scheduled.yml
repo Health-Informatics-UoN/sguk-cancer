@@ -19,5 +19,5 @@ jobs:
   export-renv-lockfile:
   # osv doesn't support rv lockfiles, but it does support renv
   # rv can export an renv lockfile
-  uses: health-informatics-uon/omop-r-toolkit/.github/workflows/osv-scan-rv.yml@53b9f273a747c93dd3abb0a48194f92e4d3dded6
+  uses: health-informatics-uon/omop-r-toolkit/.github/workflows/osv-scan-rv.yml@598e44264710c324253329c1e329ca9af74b4e4a
   secrets: inherit
